@@ -26,8 +26,8 @@
 </head>
 <body>
     <h1>Good Day Cris</h1>
-  <div id="clock">--:--:--</div>
-  <div id="date">--/--/----</div>
+  <div id="clock"></div>
+  <div id="date"></div>
 
   <script>
     function updateTime() {
@@ -41,6 +41,12 @@
 
     updateTime();
     setInterval(updateTime, 1000);
+
+    chrome.storage.local.get(['greeting'], function(result) {
+  const greeting = result.greeting || 'Good Day Cris';  // Default greeting if not set
+  document.querySelector('h1').textContent = greeting;
+});
+
   </script>
 </body>
 </html>
