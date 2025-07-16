@@ -3,10 +3,16 @@
   "name": "Custom New Tab Clock",
   "version": "1.0",
   "description": "Displays current date and time in a custom new tab.",
-  "chrome_url_overrides": {
-    "newtab": "newtab.html"
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "newtab.html"
   },
   "icons": {
     "128": "icon.png"
-  }
+  },
+  "permissions": [
+    "tabs"
+  ]
 }
