@@ -4,7 +4,7 @@
   "version": "1.0",
   "description": "Displays current date and time in a custom new tab.",
   "chrome_url_overrides": {
-    "newtab": "newtab.html"
+    "index": "index.html"
   }
  
 }
