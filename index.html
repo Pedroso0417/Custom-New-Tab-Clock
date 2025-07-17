@@ -3,55 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>New Tab Clock</title>
-  <style>
-    body {
-      margin: 0;
-      background: #111;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      font-family: 'Segoe UI', sans-serif;
-    }
-    #clock {
-      font-size: 64px;
-      font-weight: bold;
-    }
-    #date {
-      font-size: 28px;
-      margin-top: 10px;
-    }
-  </style>
+    <title>New Tab Clock</title>
+    <style>
+        body {
+            margin: 0;
+            background: #111;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        #clock {
+            font-size: 64px;
+            font-weight: bold;
+        }
+        #date {
+            font-size: 28px;
+            margin-top: 10px;
+        }
+        h1 {
+            font-size: 36px;
+        }
+    </style>
 </head>
 <body>
     <h1>Good Day Cris</h1>
-  <div id="clock"></div>
-  <div id="date"></div>
+    <div id="clock"></div>
+    <div id="date"></div>
 
-  <script>
-    function updateTime() {
-      const now = new Date();
-      const time = now.toLocaleTimeString();
-      const date = now.toLocaleDateString();
+    <script>
+        function updateClock() {
+            const now = new Date();
 
-      document.getElementById('clock').textContent = time;
-      document.getElementById('date').textContent = date;
-    }
+            // Get current time in a format (HH:MM:SS)
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            const time = `${hours}:${minutes}:${seconds}`;
 
-    updateTime();
-    setInterval(updateTime, 1000);
+            // Get current date in a format (MM/DD/YYYY)
+            const month = (now.getMonth() + 1).toString().padStart(2, '0');
+            const day = now.getDate().toString().padStart(2, '0');
+            const year = now.getFullYear();
+            const date = `${month}/${day}/${year}`;
 
-    // Hardcoded greeting
-    const greeting = 'Good Day Cris'; // You can replace this with any string
-    document.querySelector('h1').textContent = greeting;
-  </script>
+            // Update the clock and date on the page
+            document.getElementById('clock').textContent = time;
+            document.getElementById('date').textContent = date;
+        }
+
+        // Call the updateClock function every second
+        setInterval(updateClock, 1000);
+
+        // Initial call to update the time immediately
+        updateClock();
+    </script>
 </body>
 </html>
-
-
-
-
-
