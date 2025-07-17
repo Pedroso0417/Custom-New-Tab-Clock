@@ -42,11 +42,9 @@
     updateTime();
     setInterval(updateTime, 1000);
 
-    chrome.storage.local.get(['greeting'], function(result) {
-  const greeting = result.greeting || 'Good Day Cris';  // Default greeting if not set
-  document.querySelector('h1').textContent = greeting;
-});
-
+    // Hardcoded greeting
+    const greeting = 'Good Day Cris'; // You can replace this with any string
+    document.querySelector('h1').textContent = greeting;
   </script>
 </body>
 </html>
